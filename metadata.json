@@ -1,0 +1,6 @@
+{
+  "name": "Oldbro Premium Cotton Collection",
+  "description": "Oldbro Premium 100% Combed Cotton Collection - Smart custom fit, durable print & colors, authentic apparel store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
