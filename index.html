@@ -8,6 +8,18 @@
   <meta property="og:title" content="OLD BRO - The New Collection | Official Store" />
   <meta property="og:description" content="FASHION OLD BRO - The New Collection. Instant WhatsApp Order: 01841215863." />
 
+  <!-- PWA & Chrome Android WebAPK Meta Tags -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#5c3bf5" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="OLD BRO" />
+  <meta name="application-name" content="OLD BRO" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+
   <!-- Google Fonts: Plus Jakarta Sans & Hind Siliguri -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,27 +78,70 @@
 </head>
 <body class="bg-[#ffffff] min-h-screen pb-28 antialiased selection:bg-[#5c3bf5] selection:text-white">
 
-  <!-- Top Announcement Notification (WhatsApp Direct Order Helpline) -->
+  <!-- Top Announcement Notification (WhatsApp Direct Order Helpline & Direct APK Download) -->
   <aside aria-label="Notice Bar" class="bg-gradient-to-r from-[#5c3bf5] to-[#7c3aed] text-white text-xs py-2 px-3 sm:px-4 text-center sticky top-0 z-40 shadow-xs">
     <div class="max-w-md sm:max-w-xl mx-auto flex items-center justify-between gap-2">
       <div class="flex items-center gap-1.5 truncate text-[11px] sm:text-xs">
         <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
-        <span class="font-bold">অর্ডার করতে WhatsApp:</span>
+        <span class="font-bold">অর্ডার WhatsApp:</span>
         <span class="font-extrabold tracking-wide">01841215863</span>
       </div>
-      <a href="https://wa.me/8801841215863?text=হ্যালো%20OLDBRO,%20আমি%20প্রোডাক্ট%20অর্ডার%20করতে%20চাই।" 
-         target="_blank" 
-         class="bg-white/20 hover:bg-white/30 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition flex-shrink-0 flex items-center gap-1">
-        <span>💬 চ্যাট</span>
-      </a>
+      <div class="flex items-center gap-1.5 flex-shrink-0">
+        <!-- Direct APK Download Button -->
+        <a href="/downloads/oldbro-official-v1.0.apk" 
+           download="oldbro-official-v1.0.apk"
+           onclick="triggerApkDownloadToast()" 
+           id="top-install-btn"
+           class="bg-emerald-400 hover:bg-emerald-300 text-gray-950 font-black text-[11px] px-2.5 py-0.5 rounded-full transition flex items-center gap-1 shadow-xs active:scale-95"
+           title="সরাসরি APK ডাউনলোড করুন">
+          <svg class="w-3.5 h-3.5 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-5H8l4-4 4 4h-3v5h-2z"/>
+          </svg>
+          <span>📥 ডাউনলোড APK</span>
+        </a>
+
+        <a href="https://wa.me/8801841215863?text=হ্যালো%20OLDBRO,%20আমি%20প্রোডাক্ট%20অর্ডার%20করতে%20চাই।" 
+           target="_blank" 
+           class="bg-white/20 hover:bg-white/30 text-white font-bold text-[11px] px-2.5 py-0.5 rounded-full transition flex items-center gap-1">
+          <span>💬 চ্যাট</span>
+        </a>
+      </div>
     </div>
   </aside>
+
+  <!-- Direct APK Download Notification Bar -->
+  <div id="pwa-top-callout" class="bg-gradient-to-r from-emerald-50 via-teal-50 to-green-50 border-b border-emerald-200/80 py-2 px-3 sm:px-4 transition-all duration-300">
+    <div class="max-w-md sm:max-w-xl mx-auto flex items-center justify-between gap-2.5">
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-7 h-7 rounded-xl bg-gradient-to-tr from-emerald-500 to-green-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-xs">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-5H8l4-4 4 4h-3v5h-2z"/>
+          </svg>
+        </div>
+        <div class="text-[11px] sm:text-xs text-emerald-950 leading-tight truncate">
+          <span class="font-black text-emerald-900">ডাইরেক্ট এপিকে:</span> ফোনে সরাসরি 6.2 MB এপিকে (APK) ফাইল নামিয়ে নিন
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 flex-shrink-0">
+        <a href="/downloads/oldbro-official-v1.0.apk" 
+           download="oldbro-official-v1.0.apk" 
+           onclick="triggerApkDownloadToast()"
+           class="bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-black text-[11px] px-3 py-1 rounded-xl shadow-xs transition flex items-center gap-1">
+          <span>📥 ডাউনলোড APK (6.2 MB)</span>
+        </a>
+        <button type="button" 
+                onclick="closeTopPWACallout()" 
+                class="text-emerald-800 hover:text-emerald-950 p-1 text-xs" 
+                title="বন্ধ করুন">✕</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Mobile App Frame Container (matches the exact mobile UI in user's image) -->
   <div class="max-w-md sm:max-w-xl mx-auto px-4 pt-3">
 
     <!-- Brand Header Banner: Official OLD BRO Fashion The New Collection Image -->
-    <header class="mb-3.5 pt-1">
+    <header class="mb-3 pt-1">
       <div class="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs border border-stone-200/80 bg-[#fbf6f0]">
         <img src="/images/oldbro_brand_banner.jpg" 
              alt="FASHION - OLD BRO - THE NEW COLLECTION" 
@@ -95,6 +150,58 @@
              class="w-full h-auto object-contain block select-none" />
       </div>
     </header>
+
+    <!-- Official Direct Android APK Download Card (Just like standard APK download websites) -->
+    <section class="mb-3.5 bg-gradient-to-br from-neutral-900 via-stone-900 to-neutral-950 text-white rounded-3xl p-3.5 sm:p-4 shadow-lg border border-neutral-800 relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+      
+      <div class="flex items-center gap-3 mb-2.5">
+        <!-- App Icon -->
+        <div class="w-12 h-12 rounded-2xl bg-black p-0.5 shadow-md border border-white/15 flex-shrink-0 relative">
+          <img src="/apple-touch-icon.png" alt="OLD BRO App" class="w-full h-full object-cover rounded-xl" />
+          <div class="absolute -bottom-1 -right-1 bg-emerald-500 text-white rounded-full p-0.5 shadow-xs" title="Official Android App">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="bg-emerald-500/20 text-emerald-400 font-extrabold text-[10px] uppercase px-2 py-0.5 rounded-md border border-emerald-500/30">
+              Android APK
+            </span>
+            <span class="text-neutral-400 text-xs font-semibold">v1.0 (Latest)</span>
+          </div>
+          <h3 class="font-black text-sm sm:text-base text-white truncate mt-0.5">OLD BRO Official Android App</h3>
+          <p class="text-neutral-300 text-xs truncate">ফাইল সাইজ: 6.2 MB • সরাসরি ডাউনলোড</p>
+        </div>
+      </div>
+
+      <!-- Main Direct Download Action Button -->
+      <div class="space-y-1.5">
+        <a href="/downloads/oldbro-official-v1.0.apk" 
+           download="oldbro-official-v1.0.apk" 
+           onclick="triggerApkDownloadToast()"
+           class="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 active:scale-98 text-white font-black text-sm py-3 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-md transition group select-none">
+          <svg class="w-5 h-5 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span>📥 সরাসরি APK ডাউনলোড করুন (6.2 MB)</span>
+        </a>
+
+        <div class="flex items-center justify-between text-[11px] text-neutral-400 px-1">
+          <span class="flex items-center gap-1 text-emerald-400 font-semibold truncate">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            টিপ দিলেই সরাসরি APK ডাউনলোড শুরু
+          </span>
+          <button type="button" onclick="openPWAInstallModal()" class="text-neutral-300 hover:text-white underline font-semibold transition flex-shrink-0">
+            ইনস্টল নিয়ম
+          </button>
+        </div>
+      </div>
+    </section>
 
     <!-- Search Products Bar with Badge [3] and Plus [+] Button -->
     <div class="flex items-center gap-2.5 mb-3.5">
@@ -725,6 +832,155 @@
   </div>
 
   <!-- ========================================================================= -->
+  <!-- DIRECT APK DOWNLOAD BOTTOM PROMPT CARD -->
+  <!-- ========================================================================= -->
+  <div id="pwa-bottom-prompt" class="fixed bottom-20 left-3 right-3 sm:left-auto sm:right-6 sm:max-w-sm z-40 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border border-emerald-200/90 transition-all duration-300">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-neutral-900 flex-shrink-0 overflow-hidden shadow-sm border border-emerald-100 p-0.5 flex items-center justify-center">
+        <img src="/apple-touch-icon.png" alt="OLD BRO App" class="w-full h-full object-cover rounded-xl" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">Android APK</span>
+          <button type="button" onclick="dismissPWAPrompt()" class="text-gray-400 hover:text-gray-600 p-1 text-xs" title="বন্ধ করুন">✕</button>
+        </div>
+        <h4 class="font-extrabold text-gray-900 text-sm mt-0.5 truncate">OLD BRO অফিশিয়াল APK</h4>
+        <p class="text-[11px] text-gray-500 truncate">সাইজ: 6.2 MB • ক্লিক করলেই ডাউনলোড</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 mt-3 pt-2.5 border-t border-gray-100">
+      <a href="/downloads/oldbro-official-v1.0.apk" 
+         download="oldbro-official-v1.0.apk"
+         onclick="triggerApkDownloadToast()" 
+         class="flex-1 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition select-none">
+        <svg class="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        <span>📥 ডাউনলোড APK (6.2 MB)</span>
+      </a>
+      <button type="button" 
+              onclick="openPWAInstallModal()" 
+              class="px-3 py-2 rounded-xl text-gray-700 bg-gray-100 hover:bg-gray-200 text-xs font-bold transition">
+        সহায়তা
+      </button>
+    </div>
+  </div>
+
+  <!-- Direct APK Download Floating Quick Action Button -->
+  <div id="pwa-floating-btn" class="fixed bottom-20 right-4 z-40 hidden">
+    <a href="/downloads/oldbro-official-v1.0.apk" 
+       download="oldbro-official-v1.0.apk"
+       onclick="triggerApkDownloadToast()" 
+       class="bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-extrabold text-xs py-2.5 px-3.5 rounded-full shadow-xl flex items-center gap-1.5 border-2 border-white transition transform hover:scale-105 select-none">
+      <svg class="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      </svg>
+      <span>ডাউনলোড APK</span>
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- DIRECT APK DOWNLOAD & STEP-BY-STEP INSTALL GUIDE MODAL -->
+  <!-- ========================================================================= -->
+  <div id="pwa-install-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 w-full max-w-md shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-2xl bg-neutral-900 p-0.5 shadow-sm flex items-center justify-center">
+            <img src="/apple-touch-icon.png" alt="OLD BRO Icon" class="w-full h-full object-cover rounded-[14px]" />
+          </div>
+          <div>
+            <h3 class="text-base font-extrabold text-gray-900 leading-tight">OLD BRO Android APK ডাউনলোড</h3>
+            <p class="text-xs text-emerald-600 font-bold">ভার্সন: v1.0.0 • সাইজ: 6.2 MB</p>
+          </div>
+        </div>
+        <button type="button" onclick="closePWAInstallModal()" class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center transition">
+          ✕
+        </button>
+      </div>
+
+      <!-- Main Direct APK Download Button -->
+      <div class="my-4 space-y-2">
+        <a href="/downloads/oldbro-official-v1.0.apk" 
+           download="oldbro-official-v1.0.apk"
+           onclick="triggerApkDownloadToast()" 
+           id="modal-install-action-btn"
+           class="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 active:scale-98 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2.5 shadow-lg transition select-none">
+          <svg class="w-5 h-5 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span>📥 এখনই APK ফাইল নামিয়ে নিন (6.2 MB)</span>
+        </a>
+
+        <!-- Mirror 2 Download Link -->
+        <a href="/oldbro-app.apk" 
+           download="oldbro-app.apk"
+           onclick="triggerApkDownloadToast()" 
+           class="w-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 transition">
+          <span>🔄 বিকল্প ডাউনলোড লিংক (Mirror 2)</span>
+        </a>
+      </div>
+
+      <!-- 3-Step Visual Instruction Guide -->
+      <div class="mb-4 bg-emerald-50/70 rounded-2xl p-4 border border-emerald-100 space-y-3">
+        <h4 class="text-xs font-black uppercase tracking-wider text-emerald-950 flex items-center gap-1.5">
+          <span>📱</span>
+          <span>যেভাবে সহজে APK ফাইল ফোনে ইনস্টল করবেন:</span>
+        </h4>
+
+        <!-- Step 1 -->
+        <div class="flex items-start gap-2.5 text-xs text-gray-700">
+          <div class="w-5 h-5 rounded-full bg-emerald-600 text-white font-black text-[11px] flex items-center justify-center flex-shrink-0 mt-0.5">
+            ১
+          </div>
+          <div>
+            <span class="font-bold text-gray-900">"এখনই APK ফাইল নামিয়ে নিন"</span> বাটনে চাপ দিন। আপনার ফোনে সাথে সাথে <strong class="text-emerald-700">oldbro-official-v1.0.apk</strong> ফাইলটি ডাউনলোড হওয়া শুরু হবে।
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex items-start gap-2.5 text-xs text-gray-700">
+          <div class="w-5 h-5 rounded-full bg-emerald-600 text-white font-black text-[11px] flex items-center justify-center flex-shrink-0 mt-0.5">
+            ২
+          </div>
+          <div>
+            ডাউনলোড সম্পন্ন হলে আপনার ফোনের উপরের <strong>নোটিফিকেশন বার</strong> থেকে ফাইলটিতে চাপুন অথবা ফোনের <strong>Files / Downloads</strong> ফোল্ডারে যান।
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex items-start gap-2.5 text-xs text-gray-700">
+          <div class="w-5 h-5 rounded-full bg-emerald-600 text-white font-black text-[11px] flex items-center justify-center flex-shrink-0 mt-0.5">
+            ৩
+          </div>
+          <div>
+            ফাইলে ট্যাপ করে <span class="font-bold text-emerald-800 bg-white px-1.5 py-0.5 rounded border border-emerald-200">"Install"</span> চাপুন (যদি "Unknown apps" চায় তবে "Allow" করে দিন)। ব্যস, সরাসরি আসল অ্যাপ হিসেবে ফোনে সেট হয়ে যাবে!
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Utilities -->
+      <div class="space-y-2">
+        <button type="button" 
+                onclick="copyStoreUrlForChrome()" 
+                class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 transition">
+          <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
+          </svg>
+          <span>বন্ধুদের সাথে APK লিংক শেয়ার করতে কপি করুন</span>
+        </button>
+
+        <button type="button" onclick="closePWAInstallModal()" class="w-full bg-gray-50 hover:bg-gray-100 text-gray-600 font-semibold text-xs py-2 rounded-xl transition">
+          বন্ধ করুন
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
   <!-- JAVASCRIPT LOGIC -->
   <!-- ========================================================================= -->
   <script>
@@ -1081,9 +1337,181 @@
     window.addEventListener('click', function(e) {
       const stockModal = document.getElementById('stock-modal');
       const ordersModal = document.getElementById('orders-modal');
+      const pwaModal = document.getElementById('pwa-install-modal');
       if (e.target === stockModal) stockModal.classList.add('hidden');
       if (e.target === ordersModal) ordersModal.classList.add('hidden');
+      if (e.target === pwaModal) pwaModal.classList.add('hidden');
     });
+
+    // =========================================================================
+    // PWA & GOOGLE CHROME APK / WEBAPK INSTALLATION CONTROLLER
+    // =========================================================================
+    let deferredPWAEvent = null;
+    let isPWAInstalled = false;
+
+    // Detect standalone mode (already installed as WebAPK / PWA)
+    function checkStandaloneMode() {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                           (window.navigator && window.navigator.standalone === true);
+      if (isStandalone) {
+        isPWAInstalled = true;
+        const bottomPrompt = document.getElementById('pwa-bottom-prompt');
+        const topCallout = document.getElementById('pwa-top-callout');
+        const topBtn = document.getElementById('top-install-btn');
+        const floatingBtn = document.getElementById('pwa-floating-btn');
+        if (bottomPrompt) bottomPrompt.classList.add('hidden');
+        if (topCallout) topCallout.classList.add('hidden');
+        if (topBtn) topBtn.classList.add('hidden');
+        if (floatingBtn) floatingBtn.classList.add('hidden');
+      }
+    }
+
+    // Register Service Worker for Chromium PWA / WebAPK standards
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then((reg) => {
+          console.log('OLD BRO PWA SW Registered:', reg.scope);
+        }).catch((err) => {
+          console.warn('SW registration:', err);
+        });
+        checkStandaloneMode();
+      });
+    } else {
+      checkStandaloneMode();
+    }
+
+    // Direct APK Download Handlers
+    function triggerApkDownloadToast(filename = 'oldbro-official-v1.0.apk') {
+      showToast('🚀 ' + filename + ' ডাউনলোড শুরু হয়েছে! ফোনের Downloads ফোল্ডার দেখুন।');
+    }
+
+    function downloadApkDirectly(url = '/downloads/oldbro-official-v1.0.apk', filename = 'oldbro-official-v1.0.apk') {
+      triggerApkDownloadToast(filename);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Capture Chrome beforeinstallprompt event (optional PWA fallback)
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPWAEvent = e;
+      console.log('PWA beforeinstallprompt captured!');
+
+      if (!isPWAInstalled && !sessionStorage.getItem('pwa_prompt_dismissed')) {
+        const bottomPrompt = document.getElementById('pwa-bottom-prompt');
+        if (bottomPrompt) bottomPrompt.classList.remove('hidden');
+      }
+    });
+
+    // Detect successful installation
+    window.addEventListener('appinstalled', () => {
+      isPWAInstalled = true;
+      deferredPWAEvent = null;
+      showToast('🎉 অভিনন্দন! OLD BRO অ্যাপটি ফোনে সফলভাবে ইনস্টল হয়েছে!');
+      const bottomPrompt = document.getElementById('pwa-bottom-prompt');
+      const topCallout = document.getElementById('pwa-top-callout');
+      const topBtn = document.getElementById('top-install-btn');
+      const floatingBtn = document.getElementById('pwa-floating-btn');
+      if (bottomPrompt) bottomPrompt.classList.add('hidden');
+      if (topCallout) topCallout.classList.add('hidden');
+      if (topBtn) topBtn.classList.add('hidden');
+      if (floatingBtn) floatingBtn.classList.add('hidden');
+      closePWAInstallModal();
+    });
+
+    // Main trigger for installation (from top button, banner or modal)
+    async function triggerPWAInstall() {
+      if (deferredPWAEvent) {
+        try {
+          deferredPWAEvent.prompt();
+          const choice = await deferredPWAEvent.userChoice;
+          if (choice.outcome === 'accepted') {
+            showToast('📥 অ্যাপ ইনস্টলেশন শুরু হয়েছে...');
+            deferredPWAEvent = null;
+            dismissPWAPrompt();
+          } else {
+            showToast('ইনস্টলেশন বাতিল করা হয়েছে');
+          }
+        } catch (err) {
+          console.warn('Prompt error:', err);
+          openPWAInstallModal();
+        }
+      } else {
+        openPWAInstallModal();
+      }
+    }
+
+    // Modal action button
+    function promptChromeInstallAction() {
+      if (deferredPWAEvent) {
+        triggerPWAInstall();
+        closePWAInstallModal();
+      } else {
+        showToast('👉 ক্রোম ব্রাউজারের উপরে (⋮) চাপুন এবং "Install app" চাপুন');
+      }
+    }
+
+    // UI Toggles
+    function dismissPWAPrompt() {
+      const bottomPrompt = document.getElementById('pwa-bottom-prompt');
+      const floatingBtn = document.getElementById('pwa-floating-btn');
+      if (bottomPrompt) bottomPrompt.classList.add('hidden');
+      if (floatingBtn && !isPWAInstalled) floatingBtn.classList.remove('hidden');
+      sessionStorage.setItem('pwa_prompt_dismissed', 'true');
+    }
+
+    function closeTopPWACallout() {
+      const topCallout = document.getElementById('pwa-top-callout');
+      if (topCallout) topCallout.classList.add('hidden');
+    }
+
+    function openPWAInstallModal() {
+      const modal = document.getElementById('pwa-install-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closePWAInstallModal() {
+      const modal = document.getElementById('pwa-install-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Copy store URL helper
+    function copyStoreUrlForChrome() {
+      const url = window.location.href.split('?')[0];
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast('📋 লিংক কপি হয়েছে! ক্রোম ব্রাউজারে পেস্ট করুন');
+        }).catch(() => {
+          fallbackCopyText(url);
+        });
+      } else {
+        fallbackCopyText(url);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const input = document.createElement('input');
+      input.value = text;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast('📋 লিংক কপি হয়েছে! ক্রোম ব্রাউজারে খুলুন');
+    }
+
+    // Direct Chrome Intent opener (for Android)
+    function openDirectChromeIntent() {
+      const cleanUrl = window.location.href;
+      const chromeIntent = 'intent://' + cleanUrl.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;end';
+      window.location.href = chromeIntent;
+      setTimeout(() => {
+        showToast('গুগল ক্রোমে সাইটটি ওপেন করে ⋮ মেনু থেকে Install app দিন');
+      }, 1500);
+    }
   </script>
 </body>
 </html>

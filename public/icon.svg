@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181f" />
+      <stop offset="50%" stop-color="#0f0f14" />
+      <stop offset="100%" stop-color="#08080a" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3344" />
+      <stop offset="50%" stop-color="#d90429" />
+      <stop offset="100%" stop-color="#8d0801" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d061" />
+      <stop offset="100%" stop-color="#e5a93c" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+  
+  <!-- Outer Ring Accent -->
+  <circle cx="256" cy="240" r="190" fill="none" stroke="#272730" stroke-width="4" stroke-dasharray="12 8" />
+  <circle cx="256" cy="240" r="176" fill="#14141a" stroke="#ff3344" stroke-width="3" stroke-opacity="0.6" />
+
+  <!-- Crown on Head -->
+  <path d="M236 128 L244 144 L256 132 L268 144 L276 128 L278 152 L234 152 Z" fill="url(#goldGrad)" />
+  <circle cx="236" cy="125" r="3" fill="#f5d061" />
+  <circle cx="256" cy="129" r="3.5" fill="#f5d061" />
+  <circle cx="276" cy="125" r="3" fill="#f5d061" />
+
+  <!-- Phoenix / Eagle Emblem -->
+  <!-- Left Wing -->
+  <path d="M246 195 C230 180 190 145 130 155 C120 157 110 162 105 168 C115 178 135 190 150 196 C130 198 112 210 110 220 C125 228 145 232 165 233 C145 240 128 254 130 268 C145 272 170 268 195 258 C175 272 162 292 168 305 C185 304 210 286 230 265 C220 285 215 310 224 325 C235 320 248 290 252 268 Z" fill="url(#redGrad)" />
+  
+  <!-- Right Wing -->
+  <path d="M266 195 C282 180 322 145 382 155 C392 157 402 162 407 168 C397 178 377 190 362 196 C382 198 400 210 402 220 C387 228 367 232 347 233 C367 240 384 254 382 268 C367 272 342 268 317 258 C337 272 350 292 344 305 C327 304 302 286 282 265 C292 285 297 310 288 325 C277 320 264 290 260 268 Z" fill="url(#redGrad)" />
+
+  <!-- Center Head & Chest (Black silhouette overlay) -->
+  <path d="M256 156 C248 156 244 163 244 170 C240 171 236 176 238 182 C242 183 245 180 248 182 C246 195 242 215 238 235 C244 245 252 255 256 262 C260 255 268 245 274 235 C270 215 266 195 264 182 C267 180 270 183 274 182 C276 176 272 171 268 170 C268 163 264 156 256 156 Z" fill="#ffffff" />
+  
+  <!-- Tail Feather -->
+  <path d="M256 270 L248 335 L256 365 L264 335 Z" fill="url(#redGrad)" />
+  <path d="M256 270 L252 350 L256 375 L260 350 Z" fill="#ffffff" />
+
+  <!-- Text: OLD BRO -->
+  <text x="256" y="445" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="6">OLD BRO</text>
+  <text x="256" y="475" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="600" font-size="16" fill="#ff4d5a" letter-spacing="8">FASHION APP</text>
+</svg>
